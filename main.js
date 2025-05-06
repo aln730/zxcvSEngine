@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Add global styles
+    // Global styles
     const style = document.createElement('style');
     style.textContent = `
       @font-face {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.head.appendChild(style);
     document.title = "zxcvWeb";
   
-    // Create canvas for matrix
+    // Matrix canvas
     const canvas = document.createElement('canvas');
     canvas.id = "cmatrix";
     canvas.style.position = "fixed";
@@ -27,12 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.style.left = "0";
     canvas.style.zIndex = "-1";
     document.body.appendChild(canvas);
-
-    // Create footer container
+  
+    // Footer links
     const footerContainer = document.createElement("div");
     footerContainer.style.position = "fixed";
     footerContainer.style.left = "0";
     footerContainer.style.right = "0";
+    footerContainer.style.bottom = "0";
     footerContainer.style.display = "flex";
     footerContainer.style.flexDirection = "column";
     footerContainer.style.alignItems = "center";
@@ -88,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     document.body.appendChild(footerContainer);
   
-    // Matrix animation
+    // Matrix animation logic
     const ctx = canvas.getContext('2d');
     const fontSize = 14;
     const letters = 'アァイィウヴエェオカガキギクグケゲコゴサザシジスズセゼソゾタダチッヂヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.split('');
@@ -104,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function drawMatrix() {
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#0F0';
+      ctx.fillStyle = '#00ffcc';
       ctx.font = fontSize + 'px monospace';
   
       for (let i = 0; i < drops.length; i++) {
@@ -114,20 +115,25 @@ document.addEventListener("DOMContentLoaded", () => {
         drops[i]++;
       }
     }
-
-    //Search Bar
-    function performSearch() {
-        const query = document.getElementById("searchBar").value.trim();
-        
-        if (query !== "") {
-          // DuckDuckGo search
-          const searchURL = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
-          window.open(searchURL, "_blank");
-        }
-      }
-      
+  
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
     setInterval(drawMatrix, 33);
   });
+  
+  // Search functionality
+  function performSearch() {
+    const query = document.getElementById("searchBar").value.trim();
+    if (query !== "") {
+      const searchURL = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+      window.open(searchURL, "_blank");
+      buttonClick(); // Clear input
+    } else {
+      alert("Please enter a search term!");
+    }
+  }
+  
+  function buttonClick() {
+    document.getElementById("searchBar").value = "";
+  }
   
