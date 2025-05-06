@@ -42,30 +42,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const links = [
       ["https://csh.rit.edu/", "CSH.png", 70],
       ["https://github.com/ComputerScienceHouse", "gCSH.png", 70],
-      ["https://neovim.io/", "vim.gif", 200],
-      ["https://fedoraproject.org/", "fedora.png", 200],
-      ["http://www.openarena.ws", "quake.gif", 200],
-      ["https://proxmox.com/en/", "proxmox.png", 200],
-      ["https://distrowatch.com/table.php?distribution=dietpi", "distrowatch.gif", 200],
-      ["https://www.thefreecountry.com", "tfc.gif", 200],
-      ["https://en.wikipedia.org/wiki/Neon_Genesis_Evangelion", "lain.gif", 200],
-      ["https://coolmathgames.tech/", "maryhouse.png", 200],
-      ["https://wilnil.gay/", "wilnil_takeone.gif", 200],
-      ["https://archive.org/", "internetarchive.gif", 200],
-      ["https://nixos.org/", "nixos.png", 200],
-      ["https://jellyfin.org/", "jellyfin.gif", 200],
-      ["https://www.desmos.com/calculator", "something.gif", 200],
-      ["https://xkcd.com/", "xkcd.gif", 200],
-      ["https://youtube/RHuQqLxmEyg?si=uO_21eCqvMK690r4", "gh.gif", 200],
-      ["https://forums.developer.nvidia.com/t/pytorch-and-torchvision-for-jetpack-6-2/325257/12", "nvidia.gif", 200],
-      ["https://www.ebay.com/", "Ebay.gif", 200],
-      ["https://filen.io/", "cloud.gif", 200],
-      ["ibm.html", "IMB.gif", 200],
-      ["https://www.intel.com/content/www/us/en/download-center/home.html", "driver.gif", 200],
-      ["https://proton.me/mail", "mail.gif", 200],
-      ["https://youtu.be/u4ecB57jFhI?si=l1uXlmLR-CJWUMcZ", "bit.gif", 200],
-      ["https://discord.com/channels/@me", "chat.gif", 190],
-      ["https://duckduckgo.com/?q=firefox&ia=web", "search.gif", 200],
+      ["https://neovim.io/", "vim.gif", 180],
+      ["https://fedoraproject.org/", "fedora.png", 180],
+      ["http://www.openarena.ws", "quake.gif", 180],
+      ["https://proxmox.com/en/", "proxmox.png", 180],
+      ["https://distrowatch.com/table.php?distribution=dietpi", "distrowatch.gif", 180],
+      ["https://www.thefreecountry.com", "tfc.gif", 180],
+      ["https://en.wikipedia.org/wiki/Neon_Genesis_Evangelion", "lain.gif", 180],
+      ["https://coolmathgames.tech/", "maryhouse.png", 180],
+      ["https://wilnil.gay/", "wilnil_takeone.gif", 180],
+      ["https://archive.org/", "internetarchive.gif", 180],
+      ["https://nixos.org/", "nixos.png", 180],
+      ["https://jellyfin.org/", "jellyfin.gif", 180],
+      ["https://www.desmos.com/calculator", "something.gif", 180],
+      ["https://xkcd.com/", "xkcd.gif", 180],
+      ["https://youtube/RHuQqLxmEyg?si=uO_21eCqvMK690r4", "gh.gif", 180],
+      ["https://forums.developer.nvidia.com/t/pytorch-and-torchvision-for-jetpack-6-2/325257/12", "nvidia.gif", 180],
+      ["https://www.ebay.com/", "Ebay.gif", 180],
+      ["https://filen.io/", "cloud.gif", 180],
+      ["ibm.html", "IMB.gif", 180],
+      ["https://www.intel.com/content/www/us/en/download-center/home.html", "driver.gif", 180],
+      ["https://proton.me/mail", "mail.gif", 180],
+      ["https://youtu.be/u4ecB57jFhI?si=l1uXlmLR-CJWUMcZ", "bit.gif", 180],
+      ["https://discord.com/channels/@me", "chat.gif", 170],
+      ["https://duckduckgo.com/?q=firefox&ia=web", "search.gif", 180],
     ];
   
     const rows = [document.createElement("div"), document.createElement("div")];
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function drawMatrix() {
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#00ffcc';
+      ctx.fillStyle = '#0FC';
       ctx.font = fontSize + 'px monospace';
   
       for (let i = 0; i < drops.length; i++) {
