@@ -139,9 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Function to get the weather data based on the user's location
 function getWeatherData(latitude, longitude) {
-  const apiKey = 'e50e47b183f5c3d743c941deda26de24'; // Replace with your API key
-  
-  // Use the OpenWeatherMap API to get the weather based on coordinates
+  const apiKey = 'API-KEY'; // Replace with your API key
+    
   const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`;
 
   fetch(weatherUrl)
