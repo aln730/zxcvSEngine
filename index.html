@@ -92,28 +92,46 @@
 
 #weatherContainer {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  font-family: Arial, sans-serif;
+  top: 10px;
+  right: 10px;
+  font-family: 'Arial', sans-serif;
   color: #00ffcc;
-  text-align: center;
-  font-size: 18px;
-  background-color: rgba(0, 0, 0, 0.7); 
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 6px 8px;
+  box-shadow: 0 0 8px rgba(0, 255, 204, 0.6);
+  backdrop-filter: blur(4px);
+  border: 1px solid #00ffcc;
   width: 200px;
+  text-align: center;
+  font-size: 12px;
+  transition: transform 0.3s ease;  
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: auto;
 }
 
-#weatherContainer span {
-  display: block;
-  margin-top: 5px;
+#weatherContainer:hover {
+  transform: scale(1.05);
+}
+
+#weatherContainer .temp {
+  font-size: 16px;
+  margin-top: 4px;
+  font-weight: bold;
+}
+
+#weatherContainer .description {
+  font-size: 10px;
+  margin-top: 4px;
 }
 
 
   </style>
     <div id="weatherContainer">
-      <span id="location">Testing</span>
+      <span id="location">Loading...</span>
       <span id="temperature"></span>
       <span id="description"></span>
     </div>

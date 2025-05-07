@@ -137,3 +137,59 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("searchBar").value = "";
   }
   
+  // Function to get the weather data based on the user's location
+function getWeatherData(latitude, longitude) {
+  const apiKey = 'e50e47b183f5c3d743c941deda26de24'; // Replace with your API key
+  
+  // Use the OpenWeatherMap API to get the weather based on coordinates
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`;
+
+  fetch(weatherUrl)
+    .then(response => response.json())
+    .then(weatherData => {
+      console.log('Weather Data:', weatherData);
+      const reverseGeocodeUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+      
+      fetch(reverseGeocodeUrl)
+        .then(response => response.json())
+        .then(geoData => {
+          const location = geoData.name;
+
+          const temperature = `${Math.round(weatherData.main.temp)}°F`;
+          const description = weatherData.weather[0].description;
+
+          document.getElementById('location').textContent = location;
+          document.getElementById('temperature').textContent = temperature;
+          document.getElementById('description').textContent = description.charAt(0).toUpperCase() + description.slice(1);
+        })
+        .catch(error => {
+          console.error('Error fetching reverse geocoding data:', error);
+          document.getElementById('location').textContent = 'Unable to fetch city data.';
+        });
+    })
+    .catch(error => {
+      console.error('Error fetching weather data:', error);
+      document.getElementById('location').textContent = 'Unable to fetch weather data.';
+    });
+}
+
+//To get the location from user
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      getWeatherData(latitude, longitude);
+    }, error => {
+      console.error('Error getting location:', error);
+      document.getElementById('location').textContent = 'Location access denied.';
+    });
+  } else {
+    document.getElementById('location').textContent = 'Geolocation is not supported by this browser.';
+  }
+}
+
+getLocation();
+
+  
+
